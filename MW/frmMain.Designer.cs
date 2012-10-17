@@ -123,6 +123,7 @@
             this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
             this.axTOCControl1.Size = new System.Drawing.Size(151, 418);
             this.axTOCControl1.TabIndex = 0;
+            this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
             // 
             // tpgAttributeTable
             // 
@@ -161,7 +162,7 @@
             // 
             this.menuNewDoc.Image = ((System.Drawing.Image)(resources.GetObject("menuNewDoc.Image")));
             this.menuNewDoc.Name = "menuNewDoc";
-            this.menuNewDoc.Size = new System.Drawing.Size(152, 22);
+            this.menuNewDoc.Size = new System.Drawing.Size(151, 22);
             this.menuNewDoc.Text = "New Document";
             this.menuNewDoc.Click += new System.EventHandler(this.menuNewDoc_Click);
             // 
@@ -169,7 +170,7 @@
             // 
             this.menuOpenDoc.Image = ((System.Drawing.Image)(resources.GetObject("menuOpenDoc.Image")));
             this.menuOpenDoc.Name = "menuOpenDoc";
-            this.menuOpenDoc.Size = new System.Drawing.Size(152, 22);
+            this.menuOpenDoc.Size = new System.Drawing.Size(151, 22);
             this.menuOpenDoc.Text = "Open Document";
             this.menuOpenDoc.Click += new System.EventHandler(this.menuOpenDoc_Click);
             // 
@@ -177,7 +178,7 @@
             // 
             this.menuSaveDoc.Image = ((System.Drawing.Image)(resources.GetObject("menuSaveDoc.Image")));
             this.menuSaveDoc.Name = "menuSaveDoc";
-            this.menuSaveDoc.Size = new System.Drawing.Size(152, 22);
+            this.menuSaveDoc.Size = new System.Drawing.Size(151, 22);
             this.menuSaveDoc.Text = "Save Document";
             this.menuSaveDoc.Click += new System.EventHandler(this.menuSaveDoc_Click);
             // 
@@ -185,14 +186,14 @@
             // 
             this.menuSaveAs.Image = ((System.Drawing.Image)(resources.GetObject("menuSaveAs.Image")));
             this.menuSaveAs.Name = "menuSaveAs";
-            this.menuSaveAs.Size = new System.Drawing.Size(152, 22);
+            this.menuSaveAs.Size = new System.Drawing.Size(151, 22);
             this.menuSaveAs.Text = "Save As...";
             this.menuSaveAs.Click += new System.EventHandler(this.menuSaveAs_Click);
             // 
             // menuExitApp
             // 
             this.menuExitApp.Name = "menuExitApp";
-            this.menuExitApp.Size = new System.Drawing.Size(152, 22);
+            this.menuExitApp.Size = new System.Drawing.Size(151, 22);
             this.menuExitApp.Text = "Exit";
             this.menuExitApp.Click += new System.EventHandler(this.menuExitApp_Click);
             // 
@@ -247,6 +248,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Meru Water";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.tabControl1.ResumeLayout(false);
             this.tpgMap.ResumeLayout(false);
