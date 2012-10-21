@@ -17,59 +17,89 @@ using ESRI.ArcGIS.SystemUI;
 
 namespace MW.ContextMmenu
 {
-	public sealed class LayerVisibility : BaseCommand, ICommandSubType 
+	public sealed class LayerVisibility : BaseCommand, ICommandSubType, MW.ContextMmenu.ILayerVisibility
 	{
+		#region Member Variables
 		private IHookHelper m_hookHelper = new HookHelperClass();
 		private long m_subType;
+		#endregion
 
+		#region Getter and Setter Methods
+		/// <summary>
+		/// Get and set for the hooker
+		/// </summary>
+		public IHookHelper getSetHookHelper
+		{
+			get { return m_hookHelper; }
+			set { m_hookHelper = value; }
+		}
+		/// <summary>
+		/// Get and set for the subtype
+		/// </summary>
+		public long getSetSubType
+		{
+			get { return getSetSubType; }
+			set { getSetSubType = value; }
+		} 
+		#endregion
+
+		#region Constructor and Destructors
+		/// <summary>
+		/// Default Constructor
+		/// </summary>
 		public LayerVisibility()
 		{
-		}
-	
+		} 
+		#endregion
+
+		#region Overidded Events
+		/// <summary>
+		/// Overidded click event
+		/// </summary>
 		public override void OnClick()
 		{
-			for (int i=0; i <= m_hookHelper.FocusMap.LayerCount - 1; i++)
+			for (int i=0; i <= getSetHookHelper.FocusMap.LayerCount - 1; i++)
 			{
-				if (m_subType == 1) m_hookHelper.FocusMap.get_Layer(i).Visible = true;
-				if (m_subType == 2) m_hookHelper.FocusMap.get_Layer(i).Visible = false;
+				if (getSetSubType == 1) getSetHookHelper.FocusMap.get_Layer(i).Visible = true;
+				if (getSetSubType == 2) getSetHookHelper.FocusMap.get_Layer(i).Visible = false;
 			}
-			m_hookHelper.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography,null,null);
+			getSetHookHelper.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGeography,null,null);
 		}
 	
+		/// <summary>
+		/// Overidded Create event
+		/// </summary>
+		/// <param name="hook"></param>
 		public override void OnCreate(object hook)
 		{
-			m_hookHelper.Hook = hook;
+			getSetHookHelper.Hook = hook;
 		}
-	
-		public int GetCount()
-		{
-			return 2;
-		}
-	
-		public void SetSubType(int SubType)
-		{
-			m_subType = SubType;
-		}
-	
+
+		/// <summary>
+		/// Overidded String event
+		/// </summary>
 		public override string Caption
 		{
 			get
 			{
-				if (m_subType == 1) return "Turn All Layers On";
+				if (getSetSubType == 1) return "Turn All Layers On";
 				else  return "Turn All Layers Off";
 			}
 		}
 	
+		/// <summary>
+		/// Overidded Enabled event
+		/// </summary>
 		public override bool Enabled
 		{
 			get
 			{
 				bool enabled = false; int i;
-				if (m_subType == 1) 
+				if (getSetSubType == 1) 
 				{
-					for (i=0;i<=m_hookHelper.FocusMap.LayerCount - 1;i++)
+					for (i=0;i<=getSetHookHelper.FocusMap.LayerCount - 1;i++)
 					{
-						if (m_hookHelper.ActiveView.FocusMap.get_Layer(i).Visible == false)
+						if (getSetHookHelper.ActiveView.FocusMap.get_Layer(i).Visible == false)
 						{
 							enabled = true;
 							break;
@@ -78,9 +108,9 @@ namespace MW.ContextMmenu
 				}
 				else 
 				{
-					for (i=0;i<=m_hookHelper.FocusMap.LayerCount - 1;i++)
+					for (i=0;i<=getSetHookHelper.FocusMap.LayerCount - 1;i++)
 					{
-						if (m_hookHelper.ActiveView.FocusMap.get_Layer(i).Visible == true)
+						if (getSetHookHelper.ActiveView.FocusMap.get_Layer(i).Visible == true)
 						{
 							enabled = true;
 							break;
@@ -90,5 +120,28 @@ namespace MW.ContextMmenu
 				return enabled;
 			}
 		}
+		#endregion
+
+		#region Methods
+		/// <summary>
+		/// Returns
+		/// </summary>
+		/// <returns></returns>
+		public int GetCount()
+		{
+			return 2;
+		}
+	
+		/// <summary>
+		/// Get and Set subtype
+		/// </summary>
+		/// <param name="SubType"> subtype parameter</param>
+		public void SetSubType(int SubType)
+		{
+			getSetSubType = SubType;
+		}
+
+		#endregion
+
 	}
 }

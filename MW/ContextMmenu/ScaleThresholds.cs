@@ -17,68 +17,123 @@ using ESRI.ArcGIS.SystemUI;
 
 namespace MW.ContextMmenu
 {
-	public class ScaleThresholds : BaseCommand, ICommandSubType
+	public class ScaleThresholds : BaseCommand, ICommandSubType, MW.ContextMmenu.IScaleThresholds
 	{
+		#region Member Variables
 		private IMapControl3 m_mapControl;
-		private long m_subType;
+		private long m_subType; 
+		#endregion
 
+		#region Getter and Setter Methods
+		/// <summary>
+		/// Get and Set map control
+		/// </summary>
+		public IMapControl3 getSetMapControl
+		{
+			get { return m_mapControl; }
+			set { m_mapControl = value; }
+		}
+
+		/// <summary>
+		/// Get and Set map sub type
+		/// </summary>
+		public long getSetSubType
+		{
+			get { return m_subType; }
+			set { m_subType = value; }
+		} 
+		#endregion
+
+		#region Constructor and Destructor
+		/// <summary>
+		/// Default Constructor
+		/// </summary>
 		public ScaleThresholds()
 		{
 
-		}
-	
+		} 
+		#endregion
+
+		#region Overridden Events
+		/// <summary>
+		/// Overide Base Onclick event
+		/// </summary>
 		public override void OnClick()
 		{
-			ILayer layer = (ILayer) m_mapControl.CustomProperty;
-			if (m_subType == 1) layer.MaximumScale = m_mapControl.MapScale;
-			if (m_subType == 2) layer.MinimumScale = m_mapControl.MapScale;
-			if (m_subType == 3)
+			ILayer layer = (ILayer)getSetMapControl.CustomProperty;
+			if (getSetSubType == 1) layer.MaximumScale = getSetMapControl.MapScale;
+			if (getSetSubType == 2) layer.MinimumScale = getSetMapControl.MapScale;
+			if (getSetSubType == 3)
 			{
 				layer.MaximumScale = 0;
 				layer.MinimumScale = 0;
 			}
-			m_mapControl.Refresh(esriViewDrawPhase.esriViewGeography,null,null);
+			getSetMapControl.Refresh(esriViewDrawPhase.esriViewGeography, null, null);
 		}
-	
+
+		/// <summary>
+		/// Overide Base Oncreate event
+		/// </summary>
+		/// <param name="hook"></param>
 		public override void OnCreate(object hook)
 		{
-			m_mapControl = (IMapControl3) hook;
+			getSetMapControl = (IMapControl3)hook;
 		}
-	
-		public int GetCount()
-		{
-			return 3;
-		}
-	
-		public void SetSubType(int SubType)
-		{
-			m_subType = SubType;
-		}
-	
+		
+		/// <summary>
+		/// Override property Caption
+		/// </summary>
 		public override string Caption
 		{
 			get
 			{
-				if (m_subType == 1) return "Set Maximum Scale";
-				else if (m_subType == 2) return "Set Minimum Scale";
+				if (getSetSubType == 1) return "Set Maximum Scale";
+				else if (getSetSubType == 2) return "Set Minimum Scale";
 				else return "Remove Scale Thresholds";
 			}
 		}
-	
+
+		/// <summary>
+		/// Override Enabled property from base class
+		/// </summary>
 		public override bool Enabled
 		{
 			get
 			{
 				bool enabled = true;
-				ILayer layer = (ILayer) m_mapControl.CustomProperty;
-				
-				if (m_subType == 3)
+				ILayer layer = (ILayer)getSetMapControl.CustomProperty;
+
+				if (getSetSubType == 3)
 				{
 					if ((layer.MaximumScale == 0) & (layer.MinimumScale == 0)) enabled = false;
 				}
 				return enabled;
 			}
 		}
+
+		#endregion
+
+		#region Method
+		/// <summary>
+		/// Returns integre 3
+		/// </summary>
+		/// <returns></returns>
+		public int GetCount()
+		{
+			return 3;
+		}
+
+		/// <summary>
+		/// sets Subtype
+		/// </summary>
+		/// <param name="SubType"></param>
+		public void SetSubType(int SubType)
+		{
+			getSetSubType = SubType;
+		} 
+		#endregion
+	
+	
 	}
 }
 

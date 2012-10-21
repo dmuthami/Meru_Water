@@ -13,11 +13,17 @@ namespace MW
     /// <summary>
     /// Summary description for CreateNewDocument.
     /// </summary>
-    public class CreateNewDocument : BaseCommand
+    public class CreateNewDocument : BaseCommand, MW.ICreateNewDocument
     {
-        private IHookHelper m_hookHelper = null;
+        #region Member Variables
+        private IHookHelper m_hookHelper = null; 
+        #endregion
 
-        //constructor
+        #region Constructors / Destructors
+        /// <summary>
+        /// Default Constructor
+        /// Properties of the base class are being set here
+        /// </summary>
         public CreateNewDocument()
         {
             //update the base properties
@@ -26,7 +32,19 @@ namespace MW
             base.m_message = "Create a new map";
             base.m_toolTip = "Create a new map";
             base.m_name = "DotNetTemplate_NewDocumentCommand";
-        }
+        } 
+        #endregion
+
+        #region Getter and Setter Methods
+        /// <summary>
+        /// Get and set the hooker
+        /// </summary>
+        public IHookHelper getSetHookHelper
+        {
+            get { return m_hookHelper; }
+            set { m_hookHelper = value; }
+        } 
+        #endregion
 
         #region Overridden Class Methods
 
@@ -36,10 +54,10 @@ namespace MW
         /// <param name="hook">Instance of the application</param>
         public override void OnCreate(object hook)
         {
-            if (m_hookHelper == null)
-                m_hookHelper = new HookHelperClass();
+            if (getSetHookHelper == null)
+                getSetHookHelper = new HookHelperClass();
 
-            m_hookHelper.Hook = hook;
+            getSetHookHelper.Hook = hook;
         }
 
         /// <summary>
@@ -50,14 +68,14 @@ namespace MW
             IMapControl3 mapControl = null;
 
             //get the MapControl from the hook in case the container is a ToolbarControl
-            if (m_hookHelper.Hook is IToolbarControl)
+            if (getSetHookHelper.Hook is IToolbarControl)
             {
-                mapControl = (IMapControl3)((IToolbarControl)m_hookHelper.Hook).Buddy;
+                mapControl = (IMapControl3)((IToolbarControl)getSetHookHelper.Hook).Buddy;
             }
             //In case the container is MapControl
-            else if (m_hookHelper.Hook is IMapControl3)
+            else if (getSetHookHelper.Hook is IMapControl3)
             {
-                mapControl = (IMapControl3)m_hookHelper.Hook;
+                mapControl = (IMapControl3)getSetHookHelper.Hook;
             }
             else
             {
@@ -96,7 +114,7 @@ namespace MW
             {
                 //launch the save command
                 ICommand command = new ControlsSaveAsDocCommandClass();
-                command.OnCreate(m_hookHelper.Hook);
+                command.OnCreate(getSetHookHelper.Hook);
                 command.OnClick();
             }
 

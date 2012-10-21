@@ -17,36 +17,68 @@ using ESRI.ArcGIS.SystemUI;
 
 namespace MW.ContextMmenu
 {
-	public sealed class LayerSelectable : BaseCommand, ICommandSubType
+	public sealed class LayerSelectable : BaseCommand, ICommandSubType, MW.ContextMmenu.ILayerSelectable
 	{
+		#region Member Variables
 		private IMapControl3 m_mapControl;
-		private long m_subType;
+		private long m_subType; 
+		#endregion
 
+		#region Getter and Setter Methods
+
+		/// <summary>
+		/// Get and set map control
+		/// </summary>
+		public IMapControl3 getSetMapControl
+		{
+			get { return m_mapControl; }
+			set { m_mapControl = value; }
+		}
+
+		/// <summary>
+		/// Get and set subtype
+		/// </summary>
+		public long getSetSubType
+		{
+			get { return getSetSubType; }
+			set { getSetSubType = value; }
+		} 
+		#endregion
+
+		#region Constructor/Destructor
+		/// <summary>
+		/// Constructor and Destructor method
+		/// </summary>
 		public LayerSelectable()
 		{
-		}
-	
+		} 
+		#endregion
+
+		#region Event Handler
+		/// <summary>
+		/// Overidded method from the base class
+		/// </summary>
 		public override void OnClick()
 		{
-			IFeatureLayer layer = (IFeatureLayer) m_mapControl.CustomProperty;
-			if (m_subType == 1)	layer.Selectable = true;
-			if (m_subType == 2) layer.Selectable = false;
+			IFeatureLayer layer = (IFeatureLayer) getSetMapControl.CustomProperty;
+			if (getSetSubType == 1)	layer.Selectable = true;
+			if (getSetSubType == 2) layer.Selectable = false;
 		}
 	
 		public override void OnCreate(object hook)
 		{
-			m_mapControl = (IMapControl3) hook;
+			getSetMapControl = (IMapControl3) hook;
 		}
 		
 		public override bool Enabled
 		{
 			get
 			{
-				ILayer layer = (ILayer) m_mapControl.CustomProperty;
+				ILayer layer = (ILayer) getSetMapControl.CustomProperty;
 				if (layer is IFeatureLayer)
 				{
 					IFeatureLayer featureLayer = (IFeatureLayer) layer;
-					if (m_subType == 1) return !featureLayer.Selectable;
+					if (getSetSubType == 1) return !featureLayer.Selectable;
 					else return featureLayer.Selectable;
 				}
 				else
@@ -63,17 +95,20 @@ namespace MW.ContextMmenu
 	
 		public void SetSubType(int SubType)
 		{
-			m_subType = SubType;
+			getSetSubType = SubType;
 		}
 	
 		public override string Caption
 		{
 			get
 			{
-				if (m_subType == 1) return "Layer Selectable";
+				if (getSetSubType == 1) return "Layer Selectable";
 				else  return "Layer Unselectable";
 			}
 		}
+
+		#endregion
+	
 	}
 }
 

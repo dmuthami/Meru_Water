@@ -48,6 +48,8 @@
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusBarXY = new System.Windows.Forms.ToolStripStatusLabel();
+            this.manipulateDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAttributeTable = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tpgMap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
@@ -139,7 +141,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.securityToolStripMenuItem});
+            this.securityToolStripMenuItem,
+            this.manipulateDataToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(586, 24);
@@ -237,6 +240,21 @@
             this.statusBarXY.Size = new System.Drawing.Size(49, 17);
             this.statusBarXY.Text = "Test 123";
             // 
+            // manipulateDataToolStripMenuItem
+            // 
+            this.manipulateDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAttributeTable});
+            this.manipulateDataToolStripMenuItem.Name = "manipulateDataToolStripMenuItem";
+            this.manipulateDataToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.manipulateDataToolStripMenuItem.Text = "Manipulate Data";
+            // 
+            // mnuAttributeTable
+            // 
+            this.mnuAttributeTable.Name = "mnuAttributeTable";
+            this.mnuAttributeTable.Size = new System.Drawing.Size(152, 22);
+            this.mnuAttributeTable.Text = "Attribute Table";
+            this.mnuAttributeTable.Click += new System.EventHandler(this.mnuAttributeTable_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,6 +304,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuSaveDoc;
         private System.Windows.Forms.ToolStripMenuItem menuSaveAs;
         private System.Windows.Forms.ToolStripMenuItem menuExitApp;
+        private System.Windows.Forms.ToolStripMenuItem manipulateDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuAttributeTable;
     }
 }
 

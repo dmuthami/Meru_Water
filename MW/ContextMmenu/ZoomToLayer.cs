@@ -16,25 +16,52 @@ using ESRI.ArcGIS.Controls;
 
 namespace MW.ContextMmenu
 {
-	public sealed class ZoomToLayer : BaseCommand  
+	public sealed class ZoomToLayer : BaseCommand, MW.ContextMmenu.IZoomToLayer  
 	{
-		private IMapControl3 m_mapControl;
+		#region Member Variables
+		private IMapControl3 m_mapControl; 
+		#endregion
 
+		#region Constructor and Destructor Methods
+		/// <summary>
+		/// Default constructor
+		/// </summary>
 		public ZoomToLayer()
 		{
 			base.m_caption = "Zoom To Layer";
-		}
-	
+		} 
+		#endregion
+
+		#region Getter and Setter Method
+		/// <summary>
+		/// Get and set the map control
+		/// </summary>
+		public IMapControl3 getSetMapControl
+		{
+			get { return m_mapControl; }
+			set { m_mapControl = value; }
+		} 
+		#endregion
+
+		#region Overridden Methods
+		/// <summary>
+		/// Overide base OnClick Method
+		/// </summary>
 		public override void OnClick()
 		{
-			ILayer layer = (ILayer) m_mapControl.CustomProperty;
+			ILayer layer = (ILayer)m_mapControl.CustomProperty;
 			m_mapControl.Extent = layer.AreaOfInterest;
 		}
-	
+
+		/// <summary>
+		/// Overide base OnCreate Method
+		/// </summary>
+		/// <param name="hook"> Pass hook as argument</param>
 		public override void OnCreate(object hook)
 		{
-			m_mapControl = (IMapControl3) hook;
-		}
+			m_mapControl = (IMapControl3)hook;
+		} 
+		#endregion
 	}
 }
 
