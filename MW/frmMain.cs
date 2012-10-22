@@ -15,6 +15,7 @@ using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.esriSystem;
 using MW.ContextMmenu;
 using System.Runtime.InteropServices;
+using MW.Common;
 
 namespace MW
 {
@@ -99,7 +100,7 @@ namespace MW
         private void menuNewDoc_Click(object sender, EventArgs e)
         {
             //execute New Document command
-            ICreateNewDocument iCreateNewDocument = new CreateNewDocument();
+            ICreateNewDocument iCreateNewDocument = new CreateNewDocument ();
             ICommand command = (ICommand)iCreateNewDocument;
             command.OnCreate(getSetMapControl.Object);
             command.OnClick();
@@ -193,7 +194,7 @@ namespace MW
                 getSetMapControl = (IMapControl3)axMapControl1.Object;
 
                 //Set buddy control
-                m_tocControl.SetBuddyControl(m_mapControl);
+                getSetTocControl.SetBuddyControl(m_mapControl);
                 axToolbarControl1.SetBuddyControl(m_mapControl);
 
                 //Add pre-defined control commands to the ToolbarControl
@@ -218,8 +219,8 @@ namespace MW
                 getSetMenuLayer.AddItem(new ZoomToLayer(), -1, 6, true, esriCommandStyles.esriCommandStyleTextOnly);
 
                 //Add Open attribute table command
-                getSetMenuLayer.AddItem(new OpenAttributeTable(m_tocControl), -1, 7, true, esriCommandStyles.esriCommandStyleTextOnly);
-
+                getSetMenuLayer.AddItem(new OpenAttributeTable(getSetTocControl), -1, 7, true, esriCommandStyles.esriCommandStyleTextOnly);
+                
                 //Set the hook of each menu
                 getSetMenuLayer.SetHook(getSetMapControl);
                 getSetMenuMap.SetHook(getSetMapControl);

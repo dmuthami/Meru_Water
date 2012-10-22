@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MW
+namespace MW.Common
 {
     interface IMyEventHandler
     {

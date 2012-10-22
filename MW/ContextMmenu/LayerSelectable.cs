@@ -40,9 +40,10 @@ namespace MW.ContextMmenu
 		/// </summary>
 		public long getSetSubType
 		{
-			get { return getSetSubType; }
-			set { getSetSubType = value; }
+			get { return m_subType; }
+			set { m_subType = value; }
 		} 
+		
 		#endregion
 
 		#region Constructor/Destructor

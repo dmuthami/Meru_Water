@@ -104,15 +104,15 @@
     <Compile Include="ContextMmenu\RemoveLayer.cs" />
     <Compile Include="ContextMmenu\ScaleThresholds.cs" />
     <Compile Include="ContextMmenu\ZoomToLayer.cs" />
-    <Compile Include="CreateNewDocument.cs" />
+    <Compile Include="Common\CreateNewDocument.cs" />
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ICreateNewDocument.cs" />
-    <Compile Include="IMyEventHandler.cs" />
+    <Compile Include="Common\ICreateNewDocument.cs" />
+    <Compile Include="Common\IMyEventHandler.cs" />
     <Compile Include="LicenseInitializer.cs" />
     <Compile Include="LicenseInitializer.Designer.cs">
       <DependentUpon>LicenseInitializer.cs</DependentUpon>
@@ -123,9 +123,10 @@
     <Compile Include="ManipulateData\AttributeTable.Designer.cs">
       <DependentUpon>AttributeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManipulateData\EnterpriseGDB.cs" />
     <Compile Include="ManipulateData\IMyTOCClass.cs" />
     <Compile Include="ManipulateData\MyTOCClass.cs" />
-    <Compile Include="MyEventHandler.cs" />
+    <Compile Include="Common\MyEventHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">

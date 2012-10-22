@@ -8,12 +8,12 @@ using ESRI.ArcGIS.Controls;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.SystemUI;
 
-namespace MW
+namespace MW.Common
 {
     /// <summary>
     /// Summary description for CreateNewDocument.
     /// </summary>
-    public class CreateNewDocument : BaseCommand, MW.ICreateNewDocument
+    public class CreateNewDocument : BaseCommand, MW.Common.ICreateNewDocument
     {
         #region Member Variables
         private IHookHelper m_hookHelper = null; 

@@ -13,6 +13,7 @@
 using ESRI.ArcGIS.ADF.BaseClasses;
 using ESRI.ArcGIS.Carto;
 using ESRI.ArcGIS.Controls;
+using MW.Common;
 
 namespace MW.ContextMmenu
 {

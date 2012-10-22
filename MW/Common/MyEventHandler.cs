@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using ESRI.ArcGIS.Controls;
 
-namespace MW
+namespace MW.Common
 {
-	public class MyEventHandler : MW.IMyEventHandler
+	public class MyEventHandler : MW.Common.IMyEventHandler
 	{
 
 		#region Member Variables
@@ -39,11 +39,11 @@ namespace MW
 		{
 			try
 			{
-				MW.ManipulateData.MyTOCClass myTOCClass;
+				MW.ManipulateData.IMyTOCClass iMyTOCClass;
 
-				myTOCClass = new MW.ManipulateData.MyTOCClass(getSetITOCControl2);
+				iMyTOCClass = new MW.ManipulateData.MyTOCClass(getSetITOCControl2);
 
-				MW.ManipulateData.AttributeTable attributeTable = new ManipulateData.AttributeTable(myTOCClass.getSelectedLayerInTOC());
+				MW.ManipulateData.AttributeTable attributeTable = new ManipulateData.AttributeTable(iMyTOCClass.getSelectedLayerInTOC());
 				attributeTable.ShowDialog();
 			}
 			catch (Exception)
