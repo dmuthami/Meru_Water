@@ -175,7 +175,30 @@ namespace MW
             //exit the application
             Application.Exit();
         }
-   
+
+        /// <summary>
+        /// Connect to Database after login in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void connectToDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MW.ManipulateData.Database database = new ManipulateData.Database();
+                database.ShowDialog();
+            }
+            catch (COMException COMex)
+            {
+                MessageBox.Show("Error " + COMex.ErrorCode.ToString() + ": " + COMex.Message);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            } 
+        }
+        
         #endregion
 
         #region Form Event Handlers

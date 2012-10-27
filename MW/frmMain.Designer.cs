@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpgMap = new System.Windows.Forms.TabPage();
-            this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
-            this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
-            this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
-            this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
-            this.tpgAttributeTable = new System.Windows.Forms.TabPage();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuNewDoc = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,98 +37,22 @@
             this.menuSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.menuExitApp = new System.Windows.Forms.ToolStripMenuItem();
             this.securityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loginInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.statusBarXY = new System.Windows.Forms.ToolStripStatusLabel();
+            this.connectToDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manipulateDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAttributeTable = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1.SuspendLayout();
-            this.tpgMap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusBarXY = new System.Windows.Forms.ToolStripStatusLabel();
+            this.axToolbarControl1 = new ESRI.ArcGIS.Controls.AxToolbarControl();
+            this.axTOCControl1 = new ESRI.ArcGIS.Controls.AxTOCControl();
+            this.axLicenseControl1 = new ESRI.ArcGIS.Controls.AxLicenseControl();
+            this.axMapControl1 = new ESRI.ArcGIS.Controls.AxMapControl();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tpgMap);
-            this.tabControl1.Controls.Add(this.tpgAttributeTable);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 24);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(586, 484);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tpgMap
-            // 
-            this.tpgMap.Controls.Add(this.axLicenseControl1);
-            this.tpgMap.Controls.Add(this.axToolbarControl1);
-            this.tpgMap.Controls.Add(this.axMapControl1);
-            this.tpgMap.Controls.Add(this.axTOCControl1);
-            this.tpgMap.Location = new System.Drawing.Point(4, 22);
-            this.tpgMap.Name = "tpgMap";
-            this.tpgMap.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgMap.Size = new System.Drawing.Size(578, 458);
-            this.tpgMap.TabIndex = 0;
-            this.tpgMap.Text = "Map";
-            this.tpgMap.UseVisualStyleBackColor = true;
-            // 
-            // axLicenseControl1
-            // 
-            this.axLicenseControl1.Enabled = true;
-            this.axLicenseControl1.Location = new System.Drawing.Point(156, 200);
-            this.axLicenseControl1.Name = "axLicenseControl1";
-            this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
-            this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
-            this.axLicenseControl1.TabIndex = 3;
-            // 
-            // axToolbarControl1
-            // 
-            this.axToolbarControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.axToolbarControl1.Location = new System.Drawing.Point(3, 3);
-            this.axToolbarControl1.Name = "axToolbarControl1";
-            this.axToolbarControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axToolbarControl1.OcxState")));
-            this.axToolbarControl1.Size = new System.Drawing.Size(572, 28);
-            this.axToolbarControl1.TabIndex = 2;
-            // 
-            // axMapControl1
-            // 
-            this.axMapControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.axMapControl1.Location = new System.Drawing.Point(156, 37);
-            this.axMapControl1.Name = "axMapControl1";
-            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
-            this.axMapControl1.Size = new System.Drawing.Size(419, 418);
-            this.axMapControl1.TabIndex = 1;
-            this.axMapControl1.OnMouseMove += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMouseMoveEventHandler(this.axMapControl1_OnMouseMove);
-            this.axMapControl1.OnMapReplaced += new ESRI.ArcGIS.Controls.IMapControlEvents2_Ax_OnMapReplacedEventHandler(this.axMapControl1_OnMapReplaced);
-            // 
-            // axTOCControl1
-            // 
-            this.axTOCControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.axTOCControl1.Location = new System.Drawing.Point(3, 37);
-            this.axTOCControl1.Name = "axTOCControl1";
-            this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
-            this.axTOCControl1.Size = new System.Drawing.Size(151, 418);
-            this.axTOCControl1.TabIndex = 0;
-            this.axTOCControl1.OnMouseDown += new ESRI.ArcGIS.Controls.ITOCControlEvents_Ax_OnMouseDownEventHandler(this.axTOCControl1_OnMouseDown);
-            // 
-            // tpgAttributeTable
-            // 
-            this.tpgAttributeTable.Location = new System.Drawing.Point(4, 22);
-            this.tpgAttributeTable.Name = "tpgAttributeTable";
-            this.tpgAttributeTable.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgAttributeTable.Size = new System.Drawing.Size(578, 458);
-            this.tpgAttributeTable.TabIndex = 1;
-            this.tpgAttributeTable.Text = "Attribute Tables";
-            this.tpgAttributeTable.UseVisualStyleBackColor = true;
             // 
             // menuStrip1
             // 
@@ -203,23 +120,32 @@
             // securityToolStripMenuItem
             // 
             this.securityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loginInToolStripMenuItem,
-            this.logOutToolStripMenuItem});
+            this.connectToDatabaseToolStripMenuItem});
             this.securityToolStripMenuItem.Name = "securityToolStripMenuItem";
             this.securityToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.securityToolStripMenuItem.Text = "Security";
             // 
-            // loginInToolStripMenuItem
+            // connectToDatabaseToolStripMenuItem
             // 
-            this.loginInToolStripMenuItem.Name = "loginInToolStripMenuItem";
-            this.loginInToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.loginInToolStripMenuItem.Text = "Login In";
+            this.connectToDatabaseToolStripMenuItem.Name = "connectToDatabaseToolStripMenuItem";
+            this.connectToDatabaseToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.connectToDatabaseToolStripMenuItem.Text = "Connect to Database";
+            this.connectToDatabaseToolStripMenuItem.Click += new System.EventHandler(this.connectToDatabaseToolStripMenuItem_Click);
             // 
-            // logOutToolStripMenuItem
+            // manipulateDataToolStripMenuItem
             // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.logOutToolStripMenuItem.Text = "Log Out";
+            this.manipulateDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAttributeTable});
+            this.manipulateDataToolStripMenuItem.Name = "manipulateDataToolStripMenuItem";
+            this.manipulateDataToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.manipulateDataToolStripMenuItem.Text = "Manipulate Data";
+            // 
+            // mnuAttributeTable
+            // 
+            this.mnuAttributeTable.Name = "mnuAttributeTable";
+            this.mnuAttributeTable.Size = new System.Drawing.Size(146, 22);
+            this.mnuAttributeTable.Text = "Attribute Table";
+            this.mnuAttributeTable.Click += new System.EventHandler(this.mnuAttributeTable_Click);
             // 
             // statusStrip1
             // 
@@ -240,44 +166,66 @@
             this.statusBarXY.Size = new System.Drawing.Size(49, 17);
             this.statusBarXY.Text = "Test 123";
             // 
-            // manipulateDataToolStripMenuItem
+            // axToolbarControl1
             // 
-            this.manipulateDataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAttributeTable});
-            this.manipulateDataToolStripMenuItem.Name = "manipulateDataToolStripMenuItem";
-            this.manipulateDataToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
-            this.manipulateDataToolStripMenuItem.Text = "Manipulate Data";
+            this.axToolbarControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.axToolbarControl1.Location = new System.Drawing.Point(0, 24);
+            this.axToolbarControl1.Name = "axToolbarControl1";
+            this.axToolbarControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axToolbarControl1.OcxState")));
+            this.axToolbarControl1.Size = new System.Drawing.Size(586, 28);
+            this.axToolbarControl1.TabIndex = 9;
             // 
-            // mnuAttributeTable
+            // axTOCControl1
             // 
-            this.mnuAttributeTable.Name = "mnuAttributeTable";
-            this.mnuAttributeTable.Size = new System.Drawing.Size(152, 22);
-            this.mnuAttributeTable.Text = "Attribute Table";
-            this.mnuAttributeTable.Click += new System.EventHandler(this.mnuAttributeTable_Click);
+            this.axTOCControl1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.axTOCControl1.Location = new System.Drawing.Point(0, 52);
+            this.axTOCControl1.Name = "axTOCControl1";
+            this.axTOCControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axTOCControl1.OcxState")));
+            this.axTOCControl1.Size = new System.Drawing.Size(151, 434);
+            this.axTOCControl1.TabIndex = 10;
+            // 
+            // axLicenseControl1
+            // 
+            this.axLicenseControl1.Enabled = true;
+            this.axLicenseControl1.Location = new System.Drawing.Point(119, 285);
+            this.axLicenseControl1.Name = "axLicenseControl1";
+            this.axLicenseControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axLicenseControl1.OcxState")));
+            this.axLicenseControl1.Size = new System.Drawing.Size(32, 32);
+            this.axLicenseControl1.TabIndex = 12;
+            // 
+            // axMapControl1
+            // 
+            this.axMapControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.axMapControl1.Location = new System.Drawing.Point(151, 52);
+            this.axMapControl1.Name = "axMapControl1";
+            this.axMapControl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axMapControl1.OcxState")));
+            this.axMapControl1.Size = new System.Drawing.Size(435, 434);
+            this.axMapControl1.TabIndex = 13;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 508);
+            this.Controls.Add(this.axMapControl1);
+            this.Controls.Add(this.axLicenseControl1);
+            this.Controls.Add(this.axTOCControl1);
+            this.Controls.Add(this.axToolbarControl1);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Meru Water";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tpgMap.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axToolbarControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axTOCControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axLicenseControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axMapControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,19 +233,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tpgMap;
-        private System.Windows.Forms.TabPage tpgAttributeTable;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuNewDoc;
         private System.Windows.Forms.ToolStripMenuItem securityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem loginInToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private ESRI.ArcGIS.Controls.AxToolbarControl axToolbarControl1;
-        private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
-        private ESRI.ArcGIS.Controls.AxTOCControl axTOCControl1;
-        private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusBarXY;
         private System.Windows.Forms.ToolStripMenuItem menuOpenDoc;
@@ -306,6 +245,11 @@
         private System.Windows.Forms.ToolStripMenuItem menuExitApp;
         private System.Windows.Forms.ToolStripMenuItem manipulateDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuAttributeTable;
+        private ESRI.ArcGIS.Controls.AxToolbarControl axToolbarControl1;
+        private ESRI.ArcGIS.Controls.AxTOCControl axTOCControl1;
+        private ESRI.ArcGIS.Controls.AxLicenseControl axLicenseControl1;
+        private System.Windows.Forms.ToolStripMenuItem connectToDatabaseToolStripMenuItem;
+        private ESRI.ArcGIS.Controls.AxMapControl axMapControl1;
     }
 }
 
